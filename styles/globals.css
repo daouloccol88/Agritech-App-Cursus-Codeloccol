@@ -1,0 +1,120 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.bg-navbar {
+  background-color: hsl(44, 100%, 93%);
+}
+
+.bg-yellow {
+  background-color: hsl(53, 80%, 65%) !important;
+  color: rgb(77, 77, 77) !important;
+}
+
+.bg-green:hover {
+  background-color: hsl(108, 44%, 25%) !important;
+}
+
+.bg-yellow:hover {
+  background-color: hsl(53, 80%, 55%) !important;
+}
+
+.bg-green {
+  background-color: hsl(108, 44%, 15%) !important;
+}
+
+.text-green {
+  color: hsl(108, 44%, 15%) !important;
+}
+
+/*--------Card Stuff-----------*/
+/* Full section background */
+.hero-section {
+  height: 500px;
+  background: linear-gradient(hsla(187, 42%, 31%, 0.4), rgba(45, 111, 45, 0.4)),
+    url("/Home Carroussel.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  margin-bottom: 370px;
+}
+
+/* Make cards overlap the bottom of the section */
+.card-wrapper {
+  position: absolute;
+  bottom: -50px; /* Adjust how much they overlap */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+}
+
+/* parent card container */
+.overlap-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #1d3816;
+}
+
+/* Top background image */
+.card-img-section {
+  height: 475px;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s ease; /* animation for zoom */
+}
+
+/* zoom effect on hover */
+.overlap-card:hover .card-img-section {
+  transform: scale(1.15) rotate(8deg);
+}
+
+.zoom-img {
+  transition: transform 0.6s ease;
+}
+
+.overlap-card:hover .zoom-img {
+  transform: scale(1.05);
+  filter: brightness(1.2);
+}
+
+/* content section */
+.card-content {
+  background-color: white;
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85%;
+  border-radius: 12px;
+  padding: 16px;
+  transition: 0.4s ease;
+}
+
+/* paragraph hidden initially */
+.overlap-card .expandable {
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+}
+
+/* reveal paragraph on card hover */
+.overlap-card:hover .expandable {
+  max-height: 200px;
+  opacity: 1;
+}
+
+.card-img-fixed {
+  height: 300px; /* Adjust height as you want */
+  width: 100%; /* Ensures full width */
+  object-fit: cover; /* Crop to fill the space while maintaining aspect ratio */
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
