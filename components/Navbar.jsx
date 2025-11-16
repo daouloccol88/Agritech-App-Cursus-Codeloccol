@@ -23,15 +23,17 @@ export default function Navbar() {
       {/* ====== DESKTOP NAVBAR (hidden on md and below) ====== */}
       <nav className="navbar navbar-expand-lg bg-navbar flex-column d-none d-md-flex">
         <div className="container-fluid ">
-          <div className="d-flex">
+          <div className="d-none d-lg-block">
             <div className="d-flex">
-              <i className="bi bi-envelope" style={{ fontSize: "35px" }}></i>
-              <h6 className="pt-3 ps-1">support@agritech.com</h6>
-            </div>
+              <div className="d-flex">
+                <i className="bi bi-envelope" style={{ fontSize: "35px" }}></i>
+                <h6 className="pt-3 ps-1">support@agritech.com</h6>
+              </div>
 
-            <div className="d-flex ps-4">
-              <i className="bi bi-telephone" style={{ fontSize: "30px" }}></i>
-              <h6 className="pt-3 ps-1">(00227) 99 98 97 96</h6>
+              <div className="d-flex ps-4">
+                <i className="bi bi-telephone" style={{ fontSize: "30px" }}></i>
+                <h6 className="pt-3 ps-1">(00227) 99 98 97 96</h6>
+              </div>
             </div>
           </div>
 
@@ -75,7 +77,8 @@ export default function Navbar() {
       <nav className="bg-white d-none d-md-flex py-2 shadow-sm ">
         <div className="d-flex justify-content-between align-items-center mt-2 w-100 px-3">
           {/* Input Group */}
-          <div className="input-group w-25">
+
+          <div className="input-group w-25 d-none d-lg-flex">
             <span className="input-group-text" id="basic-addon1">
               <i className="bi bi-search" style={{ fontSize: "20px" }}></i>
             </span>
@@ -134,7 +137,7 @@ export default function Navbar() {
             ) : (
               <Link
                 href="/login"
-                className="btn bg-green me-5 p-2 px-5 rounded-pill"
+                className="btn bg-green me-3 p-2 px-5 rounded-pill"
               >
                 <div className="d-flex text-light">
                   <h5 className="pt-1">Connect</h5>
@@ -153,7 +156,7 @@ export default function Navbar() {
       <nav className="fixed-top navbar bg-light d-flex d-md-none px-3 shadow-sm">
         <Link href="/" className="navbar-brand mx-auto">
           <div className="d-flex">
-            <img src={"/favicon.ico"} width={40} height={40} />
+            <img src={"favicon.ico"} width={40} height={40} />
             <h5 className="pt-2 ps-2">Agritech App</h5>
           </div>
         </Link>
@@ -213,31 +216,50 @@ export default function Navbar() {
 
           <hr />
 
-          <div className="mb-3">
-            <Link href="/" className="navbar-brand">
-              <div className="d-flex icon-link icon-link-hover">
-                <h5>Home</h5>
-                <i className="bi bi-arrow-up-right fs-6 pb-4"></i>
-              </div>
-            </Link>
-            <Link href="/blogs" className="navbar-brand ms-4">
-              <div className="d-flex icon-link icon-link-hover">
-                <h5>Blogs</h5>
-                <i className="bi bi-arrow-up-right fs-6 pb-4"></i>
-              </div>
-            </Link>
-            <Link href="/meteo" className="navbar-brand ms-4">
-              <div className="d-flex icon-link icon-link-hover">
-                <h5>Météo</h5>
-                <i className="bi bi-arrow-up-right fs-6 pb-4"></i>
-              </div>
-            </Link>
-            <Link href="/FAO" className="navbar-brand ms-4">
-              <div className="d-flex icon-link icon-link-hover">
-                <h5>Indicateurs</h5>
-                <i className="bi bi-arrow-up-right fs-6 pb-4"></i>
-              </div>
-            </Link>
+          <div className="mb-3 d-flex flex-column">
+            <div>
+              <button data-bs-dismiss="offcanvas" className="btn">
+                <Link href="/" className="nav-link">
+                  <div className="d-flex icon-link icon-link-hover">
+                    <h5>Home</h5>
+                    <i className="bi bi-arrow-up-right fs-6 pb-4"></i>
+                  </div>
+                </Link>
+              </button>
+            </div>
+
+            <div>
+              <button data-bs-dismiss="offcanvas" className="btn">
+                <Link href="/blogs" className="navbar-brand ">
+                  <div className="d-flex icon-link icon-link-hover">
+                    <h5>Blogs</h5>
+                    <i className="bi bi-arrow-up-right fs-6 pb-4"></i>
+                  </div>
+                </Link>
+              </button>
+            </div>
+
+            <div>
+              <button data-bs-dismiss="offcanvas" className="btn">
+                <Link href="/meteo" className="navbar-brand ">
+                  <div className="d-flex icon-link icon-link-hover">
+                    <h5>Météo</h5>
+                    <i className="bi bi-arrow-up-right fs-6 pb-4"></i>
+                  </div>
+                </Link>
+              </button>
+            </div>
+
+            <div>
+              <button data-bs-dismiss="offcanvas" className="btn">
+                <Link href="/FAO" className="navbar-brand ">
+                  <div className="d-flex icon-link icon-link-hover">
+                    <h5>Indicateurs</h5>
+                    <i className="bi bi-arrow-up-right fs-6 pb-4"></i>
+                  </div>
+                </Link>
+              </button>
+            </div>
           </div>
 
           <hr />

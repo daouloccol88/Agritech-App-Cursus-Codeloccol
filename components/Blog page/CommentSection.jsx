@@ -53,7 +53,7 @@ const CommentSection = ({ comments, setComments }) => {
                 <span>({c.email})</span>
               </div>
               <div>
-                <i class="bi bi-arrow-return-left fs-3"></i>
+                <i className="bi bi-arrow-return-left fs-3"></i>
               </div>
             </div>
 
@@ -102,7 +102,7 @@ const CommentSection = ({ comments, setComments }) => {
               className="btn bg-green text-white rounded-pill p-3 mt-3"
               onClick={handleAddComment}
             >
-              Submit Comment <i class="bi bi-arrow-up-right fs-5"></i>
+              Submit Comment <i className="bi bi-arrow-up-right fs-5"></i>
             </button>
           </div>
         </div>

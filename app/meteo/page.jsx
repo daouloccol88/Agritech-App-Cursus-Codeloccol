@@ -78,8 +78,17 @@ export default function page() {
       </div>
     );
 
-  // ----------------- HOURLY DATA (next 6 hours) -----------------
-  const next6HoursIndex = data.hourly.time.slice(0, 6);
+  // 1. Get current ISO hour string
+  const nowISO = new Date().toISOString().slice(0, 13); // "2025-01-16T18"
+
+  // 2. Find where this hour appears in the API hourly array
+  const currentIndex = data.hourly.time.findIndex((t) => t.startsWith(nowISO));
+
+  // 3. Slice the next 6 hours
+  const next6HoursIndex = data.hourly.time.slice(
+    currentIndex,
+    currentIndex + 6
+  );
   const hourlyTemp = data.hourly.temperature_2m.slice(0, 6);
   const hourlyHumidity = data.hourly.relativehumidity_2m.slice(0, 6);
   const hourlyWind = data.hourly.wind_speed_10m.slice(0, 6);
@@ -139,7 +148,7 @@ export default function page() {
         <div className="row g-3 border shadow-sm rounded p-5 bg-white">
           <div className="d-flex justify-content-between">
             <div className="d-flex justify-content-between">
-              <div className="my-auto me-5">
+              <div className="my-auto ">
                 <h1>{data.current_weather.temperature}°C</h1>
                 <p>Temperature</p>
               </div>
@@ -165,7 +174,7 @@ export default function page() {
               </div>
             </div>
 
-            <div className="me-5 text-center">
+            <div className="me-5 text-center my-auto ms-3">
               <h5>
                 🕒 {new Date(data.current_weather.time).toLocaleTimeString()}
               </h5>
@@ -224,7 +233,7 @@ export default function page() {
               data-bs-parent="#myCollapseGroup"
             >
               <h3>Température des 6 prochaines heures</h3>
-              <Line data={tempChartData} height={80} />
+              <Line data={tempChartData} height={"200px"} />
             </div>
 
             <div
@@ -235,11 +244,7 @@ export default function page() {
               <h3>Vent des 6 prochaines heures</h3>
               <div className="row">
                 {hourlyWind.map((w, i) => (
-                  <div
-                    key={i}
-                    className="mx-2 my-2 p-5 card col-2 fw-bold"
-                    style={{ width: "200px" }}
-                  >
+                  <div key={i} className="col-2 py-4 fw-bold">
                     ➤ {w} km/h
                   </div>
                 ))}
@@ -252,7 +257,7 @@ export default function page() {
               data-bs-parent="#myCollapseGroup"
             >
               <h3>Précipitations des 6 prochaines heures</h3>
-              <Bar data={humidChartData} height={80} />
+              <Bar data={humidChartData} height={"80px"} />
             </div>
           </div>
         </div>
@@ -262,7 +267,7 @@ export default function page() {
           {data.daily.time.slice(0, 6).map((day, index) => (
             <div
               key={day}
-              className="col text-center border rounded p-3 mx-1 bg-white"
+              className="col-2 text-center border rounded p-3 bg-white"
             >
               <p>
                 {new Date(day).toLocaleDateString("en-US", {

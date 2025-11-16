@@ -1,6 +1,4 @@
 "use client";
-import { useEffect, useState } from "react";
-import Link from "next/link";
 import LandingMeteoCard from "@/components/Landing page/LandingMeteoCard";
 import LandingFAOCard from "@/components/Landing page/LandingFAOCard";
 import HeroSection from "@/components/Landing page/HeroSection";
@@ -28,7 +26,7 @@ export default function LandingPage() {
                   <h6 className="text-secondary">de clients satisfait</h6>
                 </div>
               </div>
-              <div className="d-flex ms-5">
+              <div className="d-flex ms-2">
                 <i className="bi bi-house-heart-fill text-light fs-2 bg-green px-3 rounded-3 pt-1"></i>
                 <div className="d-flex flex-column ms-3">
                   <h4 className="text-green">134+</h4>
@@ -43,10 +41,10 @@ export default function LandingPage() {
       <section className="py-5">
         <div className="container">
           <div className="row">
-            <div className="col-lg-6 col-sm-12 ">
+            <div className="col-lg-6 col-sm-12 mb-4">
               <LandingMeteoCard latitude={13.2454} longitude={2.3047} />
             </div>
-            <div className="col-lg-6 col-sm-12">
+            <div className="col-lg-6 col-sm-12 mb-4">
               <LandingFAOCard />
             </div>
           </div>
