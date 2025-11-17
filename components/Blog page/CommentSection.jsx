@@ -43,7 +43,7 @@ const CommentSection = ({ comments, setComments }) => {
           <div
             key={c.id}
             className="border border-success p-2 rounded mb-2"
-            style={{ width: "50%" }}
+            style={{ width: "60%" }}
           >
             <div className="d-flex justify-content-between">
               <div>

@@ -19,7 +19,7 @@ const AddBlog = () => {
       title: formData.title,
       img: "placeholder.jpg",
       content: formData.content,
-      author: currentUser.email,
+      author: currentUser.name,
       category: formData.category,
       createdAt: new Date().toISOString(),
       comments: [],
@@ -28,7 +28,7 @@ const AddBlog = () => {
     localStorage.setItem("blogs", JSON.stringify(updated));
     console.log(formData.category);
     setFormData({ title: "", content: "", category: "" });
-    //window.location.reload(true);
+    window.location.reload(true);
   };
 
   return (

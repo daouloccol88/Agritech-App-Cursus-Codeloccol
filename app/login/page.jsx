@@ -37,18 +37,15 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="bg-yellow-nh vh-100 pt-5">
-      <div className="d-flex justify-content-center pb-5">
+    <div className="bg-yellow-nh vh-100">
+      <div className="d-flex justify-content-center pb-4">
         <div className="d-flex">
           <img src={"/favicon.ico"} width={100} height={100} />
-          <h1 className="pt-3">Agritech App</h1>
+          <h1 className="pt-4">Agritech App</h1>
         </div>
       </div>
 
-      <div
-        className="container bg-green-nh text-white px-5 pt-5 pb-2 rounded-3 shadow"
-        style={{ maxWidth: "500px" }}
-      >
+      <div className="container login-div bg-green-nh text-white px-4 pt-4 pb-2 rounded-3 shadow">
         <h2 className="pb-4 text-center">
           {isRegister ? "Register" : "Login"}
         </h2>
@@ -107,7 +104,7 @@ export default function LoginPage() {
             <i className="bi bi-arrow-up-right"></i>
           </button>
         </div>
-        <p className="mt-5">
+        <p className="mt-3">
           Veuillez contactez un administrateur si vous avez oublié votre mot de
           passe
         </p>
