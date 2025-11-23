@@ -90,7 +90,7 @@ export default function LoginPage() {
             name="radioDefault"
             id="radioDefault1"
           />
-          <label className="form-check-label" for="radioDefault1">
+          <label className="form-check-label" htmlFor="radioDefault1">
             Se souvenir de moi
           </label>
         </div>
