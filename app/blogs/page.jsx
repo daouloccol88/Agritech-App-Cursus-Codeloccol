@@ -73,20 +73,26 @@ export default function BlogsPage() {
                     </p>
                     <h4 className="card-title">{b.title}</h4>
                     <p className="card-text text-muted">{b.author}</p>
-                    <EditBlog
-                      blog={b}
-                      currentUser={currentUser}
-                      onUpdate={(updatedBlogs) => setBlogs(updatedBlogs)}
-                    />
-                    <RemoveBlog
-                      blog={b}
-                      onDelete={() => {
-                        const updated = JSON.parse(
-                          localStorage.getItem("blogs") || "[]"
-                        );
-                        setBlogs(updated);
-                      }}
-                    />
+                    {currentUser ? (
+                      <>
+                        <EditBlog
+                          blog={b}
+                          currentUser={currentUser}
+                          onUpdate={(updatedBlogs) => setBlogs(updatedBlogs)}
+                        />
+                        <RemoveBlog
+                          blog={b}
+                          onDelete={() => {
+                            const updated = JSON.parse(
+                              localStorage.getItem("blogs") || "[]"
+                            );
+                            setBlogs(updated);
+                          }}
+                        />
+                      </>
+                    ) : (
+                      <></>
+                    )}
                     <div className="position-absolute" style={{ top: "37%" }}>
                       <button className="btn bg-yellow rounded-circle p-4">
                         <span className="fs-3">
